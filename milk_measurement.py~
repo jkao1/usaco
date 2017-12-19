@@ -1,8 +1,0 @@
-def count_adjustments(s):
-    s = s.split('\n')
-    days = int(s[0])
-
-if __name__ == '__main__':
-    fin = open('measurement.in', 'r')
-    fout = open('measurement.out', 'w')
-    fout.write(count_adjustments(fin.read()))

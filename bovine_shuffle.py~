@@ -1,7 +1,0 @@
-def place_cows(s):
-    output = ""
-
-if __name__ == '__main__':
-    fin = open('shuffle.in', 'r')
-    fout = open('shuffle.out', 'w')
-    fout.write(place_cows(fin.read()))

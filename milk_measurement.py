@@ -9,9 +9,12 @@ def count_adjustments(s):
         logs[int(line.split(' ')[0])] = line
     best_cows = []
     for day in sorted(logs.iterkeys()):
-        _, cow, delta = logs[day].split(' ')
+        comps = filter(None, logs[day].split(' '))
+        if len(comps) != 3:
+            continue
+        _, cow, delta = comps
         try:
-            _ = cows[cow]
+            cows[cow]
         except KeyError:
             cows[cow] = 7
 
@@ -36,7 +39,8 @@ def calculate_best_cows(cows):
         if milks > max_milks:
             best_cows = [cow]
             max_milks = milks
-        elif milks == max_milks:
+    for cow, milks in cows.items():
+        if milks == max_milks:
             best_cows.append(cow)
     return best_cows
 

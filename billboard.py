@@ -28,28 +28,7 @@ def main(s):
             for b in [bill1, bill2]:
                 if inside_rect([x + lox, y + loy], b):
                     ans -= 1
-    p_matrix(mat)
-    return(str(ans))
-    """
-    xs = [l[0] for l in [bill1, bill2, truck]] + [l[2] for l in [bill1, bill2, truck]]
-    ys = [l[1] for l in [bill1, bill2, truck]] + [l[3] for l in [bill1, bill2, truck]]
-    lox = min(xs)
-    width = max(xs) - lox
-    loy = min(ys)
-    height = max(ys) - loy
-
-    mat = [[0 for _ in xrange(width)] for _ in xrange(height)]
-    for y in xrange(height):
-        for x in xrange(width):
-            for r in [bill1, bill2, truck]:
-                if inside_rect([x + lox, loy + y], r):
-                    if r == truck and mat[y][x] > 0:
-                        ans -= 1
-                    else:
-                        mat[y][x] += 1
-    p_matrix(mat)
     return str(ans)
-    """
 if __name__ == '__main__':
     fin = open('billboard.in', 'r')
     fout = open('billboard.out', 'w')
