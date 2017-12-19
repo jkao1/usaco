@@ -1,14 +1,14 @@
 def count_adjustments(s):
-    s = s.split('\n')
+    s = filter(None, s.split('\n'))
     days = int(s[0])
     logs = {}
     cows = {}
     ans = 0
+
     for line in s[1:1 + days]:
         logs[int(line.split(' ')[0])] = line
     best_cows = []
     for day in sorted(logs.iterkeys()):
-        print(cows)
         _, cow, delta = logs[day].split(' ')
         try:
             _ = cows[cow]
@@ -27,12 +27,11 @@ def count_adjustments(s):
         else:
             ans += 1
             best_cows = new_best_cows[:]
-    print(cows)
     return str(ans)
 
 def calculate_best_cows(cows):
     best_cows = []
-    max_milks = cows.items()[0][1]
+    max_milks = float('-inf')
     for cow, milks in cows.items():
         if milks > max_milks:
             best_cows = [cow]
